@@ -1,10 +1,10 @@
 # Basic command
-### Running container  
+## Running container  
 Running container จาก image:redis version ล่าสุด แบบ detach mode (pull imager และ run ในเวลาเดียวกัน)
 ```
 $ docker run -d redis
 ```
-### ตรวจสอบ container
+## ตรวจสอบ container
 ตรวจสอบ container ที่ run
 ```
 $ docker ps
