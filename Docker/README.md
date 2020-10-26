@@ -81,24 +81,12 @@ docker.io/redis     4.0                 191c4017dcdd        6 months ago        
 # Advance
 ### log 
 ```
-docker logs -f 6a
+$ docker logs -f 6a
+1:C 23 Oct 11:19:32.305 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+
+$ docker logs eager_tesla
 1:C 23 Oct 11:19:32.305 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
 1:C 23 Oct 11:19:32.529 # Redis version=4.0.14, bits=64, commit=00000000, modified=0, pid=1, just started
-1:C 23 Oct 11:19:32.529 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
-1:M 23 Oct 11:19:32.533 * Running mode=standalone, port=6379.
-1:M 23 Oct 11:19:32.534 # WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128.
-1:M 23 Oct 11:19:32.534 # Server initialized
-1:M 23 Oct 11:19:32.535 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
-1:M 23 Oct 11:19:32.535 * Ready to accept connections
-^C
-[kittisuw@thanos-demo ~]$ docker logs eager_tesla
-1:C 23 Oct 11:19:32.305 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
-1:C 23 Oct 11:19:32.529 # Redis version=4.0.14, bits=64, commit=00000000, modified=0, pid=1, just started
-1:C 23 Oct 11:19:32.529 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
-1:M 23 Oct 11:19:32.533 * Running mode=standalone, port=6379.
-1:M 23 Oct 11:19:32.534 # WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128.
-1:M 23 Oct 11:19:32.534 # Server initialized
-1:M 23 Oct 11:19:32.535 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
 ```
 ### run container แบบกำหนดชื่อ container
 ```
@@ -159,7 +147,6 @@ docker exec -it website bash
 ```
 docker run --name website-copy --volumes-from website -d -p8081:80 -d nginx
 ```
-------------------------------------------------------------------------------------------------------
 ### Docker file with node.js
 ```
 $ sudo yum install npm
