@@ -43,7 +43,7 @@ e9f0b7607a64        redis:4.0           "docker-entrypoint..."   6 seconds ago  
 5294e499ff16        redis               "docker-entrypoint..."   6 minutes ago       Up 2 minutes        6379/tcp            modest_ritchie
 ```
 
-แบบด้วย image:redis V.ล่าสุด และ V.4.0 แบบกำหนด port เพื่ออนุญาติสามารถติดต่อ container ได้จากนอก host ที่ run docker
+### แบบด้วย image:redis V.ล่าสุด และ V.4.0 แบบกำหนด port เพื่ออนุญาติสามารถติดต่อ container ได้จากนอก host ที่ run docker
 ```
 docker run -d -p6000:6379 redis
 bfd19ad28faf1834560eeed2f4a21158a704c40a8701f24981fb427835294d0d
@@ -65,7 +65,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 bfd19ad28faf        redis               "docker-entrypoint..."   3 minutes ago       Up 3 minutes        0.0.0.0:6000->6379/tcp   wonderful_nightingale
 ```
 
-แบบ map หลาย port
+### แบบ map หลาย port
 ```
 $ docker run -d -p3000:80 -p8080:80 --name jib nginx:latest
 $ docker ps
