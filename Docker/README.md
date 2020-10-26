@@ -42,7 +42,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 e9f0b7607a64        redis:4.0           "docker-entrypoint..."   6 seconds ago       Up 3 seconds        6379/tcp            heuristic_newton
 5294e499ff16        redis               "docker-entrypoint..."   6 minutes ago       Up 2 minutes        6379/tcp            modest_ritchie
 ```
-## Run container
+
 แบบด้วย image:redis V.ล่าสุด และ V.4.0 แบบกำหนด port เพื่ออนุญาติสามารถติดต่อ container ได้จากนอก host ที่ run docker
 ```
 docker run -d -p6000:6379 redis
@@ -65,7 +65,6 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 bfd19ad28faf        redis               "docker-entrypoint..."   3 minutes ago       Up 3 minutes        0.0.0.0:6000->6379/tcp   wonderful_nightingale
 ```
 
-## Run container
 แบบ map หลาย port
 ```
 $ docker run -d -p3000:80 -p8080:80 --name jib nginx:latest
