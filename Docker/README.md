@@ -1,17 +1,19 @@
 # Basic command
-### Running container   
-จาก image:redis version ล่าสุด แบบ detach mode (pull imager และ run ในเวลาเดียวกัน)
+### Running container  
+Running container จาก image:redis version ล่าสุด แบบ detach mode (pull imager และ run ในเวลาเดียวกัน)
 ```
 $ docker run -d redis
 ```
-### ตรวจสอบ container ที่ run
+### ตรวจสอบ container
+ตรวจสอบ container ที่ run
 ```
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
 5294e499ff16        redis               "docker-entrypoint..."   2 minutes ago       Up 28 seconds       6379/tcp            modest_ritchie
 ```
 *** remove all continer :docker rm $(docker ps -aq)
-### Stop โดยใช้ prefix image id
+### Stop container
+Stop container โดยใช้ prefix image id
 ```
 $ docker stop 52
 $ docker ps
@@ -55,8 +57,7 @@ $ docker run -d -p6000:6379 redis:4.0
 $ docker run -d -p6001:6379 redis:4.0
 6aef4720b618400cffaccc206e9f302aebdde7737a5b71406edcaf5b37ab8157
 
-[kittisuw@thanos-demo ~]$
-[kittisuw@thanos-demo ~]$ docker ps
+$ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
 6aef4720b618        redis:4.0           "docker-entrypoint..."   10 seconds ago      Up 3 seconds        0.0.0.0:6001->6379/tcp   eager_tesla
 bfd19ad28faf        redis               "docker-entrypoint..."   3 minutes ago       Up 3 minutes        0.0.0.0:6000->6379/tcp   wonderful_nightingale
@@ -68,7 +69,6 @@ $ docker run -d -p3000:80 -p8080:80 --name jib nginx:latest
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                                        NAMES
 9423b308b892        nginx:latest        "/docker-entrypoin..."   About a minute ago   Up About a minute   0.0.0.0:3000->80/tcp, 0.0.0.0:8080->80/tcp   jib
-[kittisuw@thanos-demo ~]$
 ```
 
 ### ตรวจสอบ image ที่เคยทำการ pull มาที่ local host 
