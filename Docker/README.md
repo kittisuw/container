@@ -44,7 +44,7 @@ e9f0b7607a64        redis:4.0           "docker-entrypoint..."   6 seconds ago  
 ```
 ### แบบด้วย image:redis V.ล่าสุด และ V.4.0 แบบกำหนด port เพื่ออนุญาติสามารถติดต่อ container ได้จากนอก host ที่ run docker
 ```console
-docker run -d -p6000:6379 redis
+$ docker run -d -p6000:6379 redis
 bfd19ad28faf1834560eeed2f4a21158a704c40a8701f24981fb427835294d0d
 
 $ docker ps
@@ -121,7 +121,7 @@ docker rm -f $(docker ps -aq)
 ```
 ## Stop container แบบอ้างอิงชื่อ
 ```console
-docker run -d -p3000:80 -p8080:80 --name website nginx:latest
+$ docker run -d -p3000:80 -p8080:80 --name website nginx:latest
 4fe82e175efbed049ab4d40fc52dcc4bdaed71b99e165f1a2b25eecc98031b0f
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                                        NAMES
@@ -136,17 +136,17 @@ $
 ** ro:read only inside container, rw:read write insite container   
 ** Disable SE LINUX before (https://linuxize.com/post/how-to-disable-selinux-on-centos-8/)
 ```console
-docker run --name website -v $(pwd):/usr/share/nginx/html:ro -p8080:80 -d nginx 
+$ docker run --name website -v $(pwd):/usr/share/nginx/html:ro -p8080:80 -d nginx 
 ```
 
 ## access inside container
 ```console
-docker exec -it website bash
+$ docker exec -it website bash
 ```
 
 ## Share voulume
 ```console
-docker run --name website-copy --volumes-from website -d -p8081:80 -d nginx
+$ docker run --name website-copy --volumes-from website -d -p8081:80 -d nginx
 ```
 ## Docker file with node.js
 ```console
@@ -169,7 +169,7 @@ app.listen(port, () => {
 
 $ node index.js
 
-$vi Dockerfile
+$ vi Dockerfile
 FROM node:latest
 WORKDIR /app
 ADD . .
