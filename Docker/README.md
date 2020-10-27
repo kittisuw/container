@@ -4,7 +4,7 @@ Running container จาก image:redis version ล่าสุด แบบ det
 ```
 <div class="text-blue mb-2">
 $ docker run -d redis
-<div class="text-blue mb-2">
+</div>
 ```
 ## ตรวจสอบ container
 ตรวจสอบ container ที่ run
