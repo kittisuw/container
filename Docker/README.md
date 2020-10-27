@@ -21,7 +21,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 ```
 ## ตรวจสอบ Container ทั้งหมดทั้ง running และไม่ running
 ```console
-docker ps -a
+$ docker ps -a
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS               NAMES
 5294e499ff16        redis               "docker-entrypoint..."   3 minutes ago       Exited (0) 30 seconds ago                       modest_ritchie
 ```
