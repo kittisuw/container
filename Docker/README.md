@@ -2,8 +2,9 @@
 ## Running container  
 Running container จาก image:redis version ล่าสุด แบบ detach mode (pull imager และ run ในเวลาเดียวกัน)
 ```
-#24292e
+<div class="text-blue mb-2">
 $ docker run -d redis
+<div class="text-blue mb-2">
 ```
 ## ตรวจสอบ container
 ตรวจสอบ container ที่ run
