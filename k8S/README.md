@@ -1,17 +1,17 @@
 # Kubernetes(K8S) Scheduling
 ## kind: Pod
 หน่วยย่อยที่สุดของ K8S
-```
+```console
 ```
 ## kind: ReplicaSet
 
 กำหนดจำนวน Pod
-```
+```console
 ```
 ## kind: Deployment,StatefulSets,DaemonSet
 เกำหนดค่าต่าง ๆ ได้ดังนี้
 - spec.replicas : จำนวน pod เช่นกำนหนดให้ run 5 pod
-```
+```console
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -21,7 +21,7 @@ spec:
 ...
 ```
 - spec.spec.affinity.nodeAffinity: กำหนาดเงื่อนไขการ run pod โดยถ้าตรงเงื่อนไขของ Pod จะได้คะแนนตาม weight ที่กำหนดให้ เข่นบอกว่า ถ้าตรงกับ hostname ให้ weight 100%
-```
+```console
 apiVersion: apps/v1
 kind: Deployment
 metadata:
