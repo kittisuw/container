@@ -1,14 +1,12 @@
 # Basic command
 ## Running container  
 Running container จาก image:redis version ล่าสุด แบบ detach mode (pull imager และ run ในเวลาเดียวกัน)
-```
-<div class="text-blue mb-2">
+```console
 $ docker run -d redis
-</div>
 ```
 ## ตรวจสอบ container
 ตรวจสอบ container ที่ run
-```
+```console
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
 5294e499ff16        redis               "docker-entrypoint..."   2 minutes ago       Up 28 seconds       6379/tcp            modest_ritchie
@@ -16,19 +14,19 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 *** remove all continer :docker rm $(docker ps -aq)
 ## Stop container
 Stop container โดยใช้ prefix image id
-```
+```console
 $ docker stop 52
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
 ```
 ## ตรวจสอบ Container ทั้งหมดทั้ง running และไม่ running
-```
+```console
 docker ps -a
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS               NAMES
 5294e499ff16        redis               "docker-entrypoint..."   3 minutes ago       Exited (0) 30 seconds ago                       modest_ritchie
 ```
 ## Start container ที่เคย stop ไป
-```
+```console
 $ docker start 52
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
@@ -36,7 +34,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 ```
 ## Run container
 ### Run container จาก imager redis V.ล่าสุด และ V.4.0 ในเวลาเดียวกัน
-```
+```console
 $ docker run -d redis
 $ docker run -d redis:4.0
 $ docker ps
@@ -45,7 +43,7 @@ e9f0b7607a64        redis:4.0           "docker-entrypoint..."   6 seconds ago  
 5294e499ff16        redis               "docker-entrypoint..."   6 minutes ago       Up 2 minutes        6379/tcp            modest_ritchie
 ```
 ### แบบด้วย image:redis V.ล่าสุด และ V.4.0 แบบกำหนด port เพื่ออนุญาติสามารถติดต่อ container ได้จากนอก host ที่ run docker
-```
+```console
 docker run -d -p6000:6379 redis
 bfd19ad28faf1834560eeed2f4a21158a704c40a8701f24981fb427835294d0d
 
@@ -66,7 +64,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 bfd19ad28faf        redis               "docker-entrypoint..."   3 minutes ago       Up 3 minutes        0.0.0.0:6000->6379/tcp   wonderful_nightingale
 ```
 ### แบบ map หลาย port
-```
+```console
 $ docker run -d -p3000:80 -p8080:80 --name jib nginx:latest
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                                        NAMES
@@ -74,7 +72,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 ```
 ## ตรวจสอบ image 
 ตรวจสอบ image ที่เคยทำการ pull มาไว้ยัง localhost
-```
+```console
 $ docker images
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 docker.io/redis     latest              bd571e6529f3        9 days ago          104 MB
@@ -82,7 +80,7 @@ docker.io/redis     4.0                 191c4017dcdd        6 months ago        
 ```
 # Advance
 ## log 
-```
+```console
 $ docker logs -f 6a
 1:C 23 Oct 11:19:32.305 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
 
@@ -91,7 +89,7 @@ $ docker logs eager_tesla
 1:C 23 Oct 11:19:32.529 # Redis version=4.0.14, bits=64, commit=00000000, modified=0, pid=1, just started
 ```
 ## run container แบบกำหนดชื่อ container
-```
+```console
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
 6aef4720b618        redis:4.0           "docker-entrypoint..."   57 minutes ago      Up 57 minutes       0.0.0.0:6001->6379/tcp   eager_tesla
@@ -116,12 +114,13 @@ a607858c478c        redis               "docker-entrypoint..."   10 seconds ago 
 b15c69765f46        redis:4.0           "docker-entrypoint..."   5 minutes ago       Up 5 minutes        0.0.0.0:6001->6379/tcp   redis-older
 ```
 ## Force delete all container running
-* option a is show all containers, q is return only contianer id
-```
+Force delete all container running   
+option a is show all containers, q is return only contianer id
+```console
 docker rm -f $(docker ps -aq)
 ```
 ## Stop container แบบอ้างอิงชื่อ
-```
+```console
 docker run -d -p3000:80 -p8080:80 --name website nginx:latest
 4fe82e175efbed049ab4d40fc52dcc4bdaed71b99e165f1a2b25eecc98031b0f
 $ docker ps
@@ -134,23 +133,23 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 $
 ```
 ## Mapping volume
-** ro:read only inside container, rw:read write insite container
+** ro:read only inside container, rw:read write insite container   
 ** Disable SE LINUX before (https://linuxize.com/post/how-to-disable-selinux-on-centos-8/)
-```
+```console
 docker run --name website -v $(pwd):/usr/share/nginx/html:ro -p8080:80 -d nginx 
 ```
 
 ## access inside container
-```
+```console
 docker exec -it website bash
 ```
 
 ## Share voulume
-```
+```console
 docker run --name website-copy --volumes-from website -d -p8081:80 -d nginx
 ```
 ## Docker file with node.js
-```
+```console
 $ sudo yum install npm
 $ npm --version
 $ npm install --save express
@@ -187,6 +186,3 @@ $ docker ps
 CONTAINER ID        IMAGE                     COMMAND                  CREATED             STATUS              PORTS                    NAMES
 3067bfeff11a        user-service-api:latest   "docker-entrypoint..."   29 minutes ago      Up 29 minutes       0.0.0.0:3000->3000/tcp   frosty_fermi
 ```
-
-
-
